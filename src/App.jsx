@@ -1,22 +1,23 @@
-import React from 'react';
+import React  from 'react';
 import MovieCatalog from "./components/Movie-catalog";
 import Search from './components/Search/Search';
-import './App.css';
+import {Provider} from "react-redux";
+import store from './store';
 
 class App extends React.Component{
-  render(){
-    return(
+    render(){
+        return(
+            <Provider store={store}>
+                <div >
 
-          <div >
+                    <div>
+                        <Search/>
+                        <MovieCatalog/>
+                    </div>
+                </div>
+            </Provider>
 
-            <div>
-              <Search/>
-              <MovieCatalog/>
-            </div>
-          </div>
-
-
-    )
-  }
+        )
+    }
 }
 export default App;
