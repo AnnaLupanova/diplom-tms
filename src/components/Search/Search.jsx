@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {searchMovie,fetchMovies,searchByTitle} from '../../actions/index';
+import {searchMovie,fetchMovies,searchByTitle,sortMovies} from '../../actions/index';
 import './Search.css';
 
 class Search extends React.Component {
@@ -15,7 +15,24 @@ class Search extends React.Component {
         this.props.fetchMovies(this.props.text, this.props.searchBy);
 
     }
+    sortBy = (e) => {
+        const sortByReleaseData = document.querySelector('.release')
+        const sortByRating = document.querySelector('.rating')
+        if (sortByReleaseData){
+            sortByReleaseData.addEventListener('click', () =>{
+                sortByReleaseData.classList.add('activeSort');
+                sortByRating.classList.remove('activeSort')
+            })
+        }
+        if (sortByRating){
+            sortByRating.addEventListener('click', () =>{
+                sortByRating.classList.add('activeSort');
+                sortByReleaseData.classList.remove('activeSort')
+            })
+        }
 
+        this.props.sortMovies()
+    }
     searchBy = (e) => {
         e.preventDefault();
         this.props.searchByTitle(e.target.value)
@@ -71,7 +88,11 @@ class Search extends React.Component {
                     <div className='container'>
                         <div className='settings'>
                             <p className='result-movies'>{this.props.counter} movies found</p>
-                            </div>
+                            <div className='sort'>
+                                <p className='sort-by-inscription'>Sort by</p>
+                                <p className='sort-by release' >release date</p>
+                                <p className='sort-by rating' onClick={this.sortBy}>rating</p>
+                            </div></div>
                     </div>
 
                 </div>
@@ -88,4 +109,4 @@ const  mapStateToProps = (state) => ({
 
 } )
 
-export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle})(Search);
+export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies})(Search);

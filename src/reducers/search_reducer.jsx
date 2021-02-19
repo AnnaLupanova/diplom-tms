@@ -1,4 +1,4 @@
-import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE } from '../actions';
+import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,SORT_MOVIES } from '../actions';
 
 
 
@@ -22,6 +22,12 @@ export default function (state=initialState,action){
                 ...state,
                 searchBy:action.payload
             }
+        case SORT_MOVIES:
+            const sortedMovies = state.movies.map(a => a)
+           return {
+               movies: sortedMovies.sort((a,b)=>(b.vote_count-a.vote_count))
+               }
+
         case FETCH_MOVIES:
             return{
                 ...state,

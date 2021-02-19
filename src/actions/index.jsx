@@ -2,6 +2,7 @@ import axios from 'axios';
 export const SEARCH_MOVIE='SEARCH_MOVIE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 export const SEARCH_MOVIES_BY_TITLE = 'SEARCH_MOVIES_BY_TITLE';
+export const SORT_MOVIES = 'SORT_MOVIES';
 
 export const searchMovie = text => dispatch => {
     dispatch({
@@ -13,6 +14,11 @@ export const searchByTitle = searchBy => dispatch => {
     dispatch({
         type: SEARCH_MOVIES_BY_TITLE,
         payload: searchBy
+    });
+}
+export const sortMovies = () => dispatch => {
+    dispatch({
+        type: SORT_MOVIES,
     });
 }
 
