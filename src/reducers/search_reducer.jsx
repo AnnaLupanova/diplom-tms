@@ -1,4 +1,4 @@
-import {SEARCH_MOVIE, FETCH_MOVIES } from '../actions';
+import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE } from '../actions';
 
 
 
@@ -17,6 +17,11 @@ export default function (state=initialState,action){
                 text:action.payload
             }
 
+        case SEARCH_MOVIES_BY_TITLE:
+            return{
+                ...state,
+                searchBy:action.payload
+            }
         case FETCH_MOVIES:
             return{
                 ...state,
@@ -28,4 +33,6 @@ export default function (state=initialState,action){
             return state
     }
 }
+
+
 
