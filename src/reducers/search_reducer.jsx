@@ -25,7 +25,17 @@ export default function (state=initialState,action){
         case SORT_MOVIES:
             const sortedMovies = state.movies.map(a => a)
            return {
-               movies: sortedMovies.sort((a,b)=>(b.vote_count-a.vote_count))
+               sortBy:action.payload,
+               movies: sortedMovies.sort((a,b)=> {
+                   if (action.payload==='rating'){
+                       return b.vote_average - a.vote_average
+                   }
+                   if (action.payload==='release date'){
+                       return (  new Date(b.release_date) - new Date(a.release_date))
+
+                   }
+
+               })
                }
 
         case FETCH_MOVIES:
