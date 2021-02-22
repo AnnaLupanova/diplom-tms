@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {searchMovie,fetchMovies,searchByTitle,sortMovies} from '../../actions/index';
+import {searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy} from '../../actions/index';
 import './Search.css';
 
 class Search extends React.Component {
@@ -15,6 +15,8 @@ class Search extends React.Component {
         this.props.fetchMovies(this.props.text, this.props.searchBy);
 
     }
+
+
     sortBy = (e) => {
         const sortByReleaseData = document.querySelector('.release')
         const sortByRating = document.querySelector('.rating')
@@ -35,8 +37,10 @@ class Search extends React.Component {
     }
     searchBy = (e) => {
         e.preventDefault();
-        this.props.searchByTitle(e.target.value)
-        const titleActive = document.querySelector('#title');
+        this.props.isActiveSearchBy();
+        console.log(isActiveSearchBy)
+      //  this.props.searchByTitle(e.target.value)
+       /* const titleActive = document.querySelector('#title');
         const genresActive = document.querySelector('#genres')
         if (titleActive){
             titleActive.addEventListener('click', ()=>{
@@ -49,7 +53,7 @@ class Search extends React.Component {
                 genresActive.classList.add('active')
                 titleActive.classList.remove('active')
             })
-        }
+        }*/
     }
 
     render() {
@@ -68,11 +72,11 @@ class Search extends React.Component {
                                        onChange={this.onChange}/>
                                 <div className='search-settings'>
                                     <p className='search-by-inscription'>Search by</p>
-                                    <button className='button search-by'
+                                    <button className={`button search-by ${this.state.isActiveSearchBy ? 'active':''}`}
                                             onClick={this.searchBy}
                                             value='title'
                                             id='title'>Title</button>
-                                    <button className=' button search-by'
+                                    <button className={`button search-by `}
                                             onClick={this.searchBy}
                                             value='genres'
                                             id='genres'>Genre</button>
@@ -87,7 +91,7 @@ class Search extends React.Component {
                 <div className ='section-result'>
                     <div className='container'>
                         <div className='settings'>
-                            <p className='result-movies'>{this.props.counter} movies found</p>
+                            <p className='result-movies'>{this.props.movies.movies.length} movies found</p>
                             <div className='sort'>
                                 <p className='sort-by-inscription'>Sort by</p>
                                 <p className='sort-by release' >release date</p>
@@ -104,9 +108,10 @@ class Search extends React.Component {
 const  mapStateToProps = (state) => ({
     text: state.movies.text,
     searchBy: state.movies.searchBy,
-    counter: state.movies.counter,
-    movies:state.movies
+    counter: state.counter,
+    movies:state.movies,
+    isActiveSearchBy: state.isActiveSearchBy,
 
 } )
 
-export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies})(Search);
+export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy})(Search);

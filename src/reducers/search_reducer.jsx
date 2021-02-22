@@ -1,4 +1,4 @@
-import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,SORT_MOVIES } from '../actions';
+import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,SORT_MOVIES,IS_ACTIVE_SEARCH_BY } from '../actions';
 
 
 
@@ -6,7 +6,8 @@ const initialState = {
     text:'',
     movies:[],
     movie:[],
-    counter: 0
+    counter: 0,
+    isActiveSearchBy:false,
 }
 
 export default function (state=initialState,action){
@@ -16,11 +17,15 @@ export default function (state=initialState,action){
                 ...state,
                 text:action.payload
             }
-
+        case IS_ACTIVE_SEARCH_BY:
+            return{
+                ...state,
+                isActiveSearchBy:true,
+            }
         case SEARCH_MOVIES_BY_TITLE:
             return{
                 ...state,
-                searchBy:action.payload
+                searchBy:action.payload,
             }
         case SORT_MOVIES:
             const sortedMovies = state.movies.map(a => a)
@@ -32,7 +37,7 @@ export default function (state=initialState,action){
             return{
                 ...state,
                 movies:action.payload,
-                counter: action.payload.length-1,
+
             }
 
         default:

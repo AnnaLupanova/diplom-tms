@@ -3,6 +3,7 @@ export const SEARCH_MOVIE='SEARCH_MOVIE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 export const SEARCH_MOVIES_BY_TITLE = 'SEARCH_MOVIES_BY_TITLE';
 export const SORT_MOVIES = 'SORT_MOVIES';
+export const IS_ACTIVE_SEARCH_BY = 'IS_ACTIVE_SEARCH_BY';
 
 export const searchMovie = text => dispatch => {
     dispatch({
@@ -10,10 +11,17 @@ export const searchMovie = text => dispatch => {
         payload: text
     });
 }
+export const isActiveSearchBy = () => dispatch => {
+    dispatch({
+        type: IS_ACTIVE_SEARCH_BY,
+
+    });
+}
 export const searchByTitle = searchBy => dispatch => {
     dispatch({
         type: SEARCH_MOVIES_BY_TITLE,
-        payload: searchBy
+        payload: searchBy,
+
     });
 }
 export const sortMovies = () => dispatch => {
@@ -21,7 +29,6 @@ export const sortMovies = () => dispatch => {
         type: SORT_MOVIES,
     });
 }
-
 
 export const fetchMovies = (text,searchBy)=> dispatch => {
     const API_KEY = `https://reactjs-cdp.herokuapp.com/movies?search=${text}&searchBy=${searchBy}`
