@@ -43,7 +43,14 @@ export const fetchMovies = (text,searchBy)=> dispatch => {
 
 
         )
-        .then(result=> console.log(result , API_KEY))
-        .catch(err => console.log(err));
+        .then(result=> {
+
+            console.log(result , API_KEY)
+            }
+        )
+        .catch(err => {
+
+            console.log(err)
+        });
 };
 

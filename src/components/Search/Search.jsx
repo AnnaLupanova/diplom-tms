@@ -72,7 +72,7 @@ class Search extends React.Component {
                                        onChange={this.onChange}/>
                                 <div className='search-settings'>
                                     <p className='search-by-inscription'>Search by</p>
-                                    <button className={`button search-by ${this.state.isActiveSearchBy ? 'active':''}`}
+                                    <button className={`button search-by ${this.props.isActiveSearch ? 'active':''}`}
                                             onClick={this.searchBy}
                                             value='title'
                                             id='title'>Title</button>
@@ -110,7 +110,7 @@ const  mapStateToProps = (state) => ({
     searchBy: state.movies.searchBy,
     counter: state.counter,
     movies:state.movies,
-    isActiveSearchBy: state.isActiveSearchBy,
+    isActiveSearch: state.isActiveSearchBy,
 
 } )
 
