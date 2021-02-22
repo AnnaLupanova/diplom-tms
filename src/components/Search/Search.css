@@ -72,6 +72,9 @@ h2{
 .active{
     background: #FA8072;
 }
+.activeSort{
+    color: #FA8072;
+}
 .search-by{
     margin: 0 15px;
 }

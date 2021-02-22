@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy} from '../../actions/index';
+import {searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy} from '../../actions/index';
 import './Search.css';
 
 class Search extends React.Component {
@@ -18,7 +18,10 @@ class Search extends React.Component {
 
 
     sortBy = (e) => {
-        const sortByReleaseData = document.querySelector('.release')
+        e.preventDefault();
+        this.props.sortMovies(e.target.textContent)
+        this.props.isActiveSortBy();
+       /* const sortByReleaseData = document.querySelector('.release')
         const sortByRating = document.querySelector('.rating')
         if (sortByReleaseData){
             sortByReleaseData.addEventListener('click', () =>{
@@ -31,29 +34,16 @@ class Search extends React.Component {
                 sortByRating.classList.add('activeSort');
                 sortByReleaseData.classList.remove('activeSort')
             })
-        }
+        }*/
 
-        this.props.sortMovies()
+
+        console.log(e.target.textContent)
     }
     searchBy = (e) => {
         e.preventDefault();
         this.props.isActiveSearchBy();
-        console.log(isActiveSearchBy)
-      //  this.props.searchByTitle(e.target.value)
-       /* const titleActive = document.querySelector('#title');
-        const genresActive = document.querySelector('#genres')
-        if (titleActive){
-            titleActive.addEventListener('click', ()=>{
-                titleActive.classList.add('active');
-                genresActive.classList.remove('active')
-            })
-        }
-        if (genresActive){
-            genresActive.addEventListener('click', ()=>{
-                genresActive.classList.add('active')
-                titleActive.classList.remove('active')
-            })
-        }*/
+      this.props.searchByTitle(e.target.value)
+
     }
 
     render() {
@@ -72,11 +62,11 @@ class Search extends React.Component {
                                        onChange={this.onChange}/>
                                 <div className='search-settings'>
                                     <p className='search-by-inscription'>Search by</p>
-                                    <button className={`button search-by ${this.props.isActiveSearch ? 'active':''}`}
+                                    <button className={`button search-by ${this.props.isActiveSearch && this.props.searchBy==='title'  ? 'active':''}`}
                                             onClick={this.searchBy}
                                             value='title'
                                             id='title'>Title</button>
-                                    <button className={`button search-by `}
+                                    <button className={`button search-by ${this.props.isActiveSearch && this.props.searchBy==='genres' ? 'active':' '}`}
                                             onClick={this.searchBy}
                                             value='genres'
                                             id='genres'>Genre</button>
@@ -94,8 +84,8 @@ class Search extends React.Component {
                             <p className='result-movies'>{this.props.movies.movies.length} movies found</p>
                             <div className='sort'>
                                 <p className='sort-by-inscription'>Sort by</p>
-                                <p className='sort-by release' >release date</p>
-                                <p className='sort-by rating' onClick={this.sortBy}>rating</p>
+                                <p  onClick={this.sortBy} className={`sort-by release ${this.props.isActiveSort && this.props.sortBy==='release date'  ? 'activeSort':''}`}>release date</p>
+                                <p   onClick={this.sortBy} className={`sort-by rating ${this.props.isActiveSort && this.props.sortBy==='rating'  ? 'activeSort':''}`} >rating</p>
                             </div></div>
                     </div>
 
@@ -109,9 +99,12 @@ const  mapStateToProps = (state) => ({
     text: state.movies.text,
     searchBy: state.movies.searchBy,
     counter: state.counter,
+    sortBy:state.movies.sortBy,
     movies:state.movies,
-    isActiveSearch: state.isActiveSearchBy,
+    isActiveSearch: state.movies.isActiveSearchBy,
+    isActiveSort:state.movies.isActiveSortBy
+
 
 } )
 
-export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy})(Search);
+export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy})(Search);
