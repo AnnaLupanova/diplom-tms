@@ -21,23 +21,7 @@ class Search extends React.Component {
         e.preventDefault();
         this.props.sortMovies(e.target.textContent)
         this.props.isActiveSortBy();
-       /* const sortByReleaseData = document.querySelector('.release')
-        const sortByRating = document.querySelector('.rating')
-        if (sortByReleaseData){
-            sortByReleaseData.addEventListener('click', () =>{
-                sortByReleaseData.classList.add('activeSort');
-                sortByRating.classList.remove('activeSort')
-            })
-        }
-        if (sortByRating){
-            sortByRating.addEventListener('click', () =>{
-                sortByRating.classList.add('activeSort');
-                sortByReleaseData.classList.remove('activeSort')
-            })
-        }*/
 
-
-        console.log(e.target.textContent)
     }
     searchBy = (e) => {
         e.preventDefault();
@@ -98,7 +82,6 @@ class Search extends React.Component {
 const  mapStateToProps = (state) => ({
     text: state.movies.text,
     searchBy: state.movies.searchBy,
-    counter: state.counter,
     sortBy:state.movies.sortBy,
     movies:state.movies,
     isActiveSearch: state.movies.isActiveSearchBy,

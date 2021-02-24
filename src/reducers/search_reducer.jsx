@@ -55,7 +55,7 @@ export default function (state=initialState,action){
             return{
                 ...state,
                 movies:action.payload,
-                counter: action.payload.length-1,
+
             }
 
         default:
