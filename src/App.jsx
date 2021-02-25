@@ -4,7 +4,7 @@ import Search from './components/Search/Search';
 import {Provider} from "react-redux";
 import store from './store';
 import MovieDetails from './components/Movie-catalog/Movie-details/MovieDetails';
-import {BrowserRouter as Router,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 
 class App extends React.Component{
     render(){
@@ -14,7 +14,12 @@ class App extends React.Component{
 
                     <div >
                             <div >
-                                <Route exact path='/:title/:id' component={MovieDetails}  />
+                                <Switch>
+                                    <Route exact path='/film/:id' component={MovieDetails}  />
+                                </Switch>
+
+
+
                             <Search/>
                             <MovieCatalog/>
                         </div>
