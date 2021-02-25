@@ -1,4 +1,5 @@
-import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY } from '../actions';
+import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,
+    SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY,FETCH_MOVIE ,IS_MODAL} from '../actions';
 
 
 
@@ -9,6 +10,7 @@ const initialState = {
     counter: 0,
     isActiveSearchBy:false,
     isActiveSortBy:false,
+    isModalVisible:false,
 }
 
 export default function (state=initialState,action){
@@ -22,6 +24,11 @@ export default function (state=initialState,action){
             return{
                 ...state,
                 isActiveSearchBy:true,
+            }
+        case IS_MODAL:
+            return{
+                ...state,
+                isModalVisible:true,
             }
         case IS_ACTIVE_SORT_BY:
             return{
@@ -57,7 +64,12 @@ export default function (state=initialState,action){
                 movies:action.payload,
 
             }
+        case FETCH_MOVIE:
+            return{
+                ...state,
+                movie:action.payload,
 
+            }
         default:
             return state
     }

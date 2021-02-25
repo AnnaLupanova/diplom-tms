@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieItem.css';
+import {Link} from 'react-router-dom';
 
 class MovieItem extends React.Component{
     render(){
@@ -7,9 +8,14 @@ class MovieItem extends React.Component{
         return(
             <div className='section'>
                 <div className='movieItem'>
-                    <div className='poster'>
-                        <img src={movie.poster_path} alt=''/>
-                    </div>
+                   <Link to={`/film/${movie.id}`} >
+                       <div className='poster'>
+                       <img src={movie.poster_path} alt=''/>
+
+                   </div>
+
+                   </Link>
+
                     <div className='movieInfo'>
                         <div className='title'>{movie.title}</div>
                         <div className='release-date'>{movie.release_date.split('' ,4)}</div>
