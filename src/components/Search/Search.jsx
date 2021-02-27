@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy} from '../../actions/index';
+import {searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy,setLoading} from '../../actions/index';
 import './Search.css';
 
 class Search extends React.Component {
@@ -12,7 +12,7 @@ class Search extends React.Component {
     onSubmit = (e) => {
        e.preventDefault();
        this.props.fetchMovies(this.props.text, this.props.searchBy);
-
+        this.props.setLoading();
     }
 
     sortBy = (e) => {
@@ -92,4 +92,4 @@ const  mapStateToProps = (state) => ({
 
 } )
 
-export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy})(Search);
+export default connect(mapStateToProps,{searchMovie,fetchMovies,searchByTitle,sortMovies,isActiveSearchBy,isActiveSortBy,setLoading})(Search);

@@ -16,7 +16,7 @@ class MovieItem extends React.Component {
 
                     <Link to={'/film/' + movie.id } >
                         <div className='poster' >
-                            <img src={movie.poster_path} alt={movie.title}/>
+                            <img src={movie.poster_path} alt=''/>
                         </div>
                     </Link>
 

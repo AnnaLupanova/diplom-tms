@@ -4,6 +4,7 @@ import {fetchMovie,setLoading} from '../../../actions/index';
 import {Link, withRouter} from 'react-router-dom';
 import './MovieDetails.css'
 import onClickOutside from 'react-onclickoutside';
+import Spinner from '../../Landing/Spinner';
 
 
 export class MovieDetails extends React.Component{
@@ -42,7 +43,7 @@ export class MovieDetails extends React.Component{
             </React.Fragment>
 
         )
-        let content = loading ? 'loading' : info;
+        let content = loading ? <Spinner /> : info;
         return <div>{content}</div>;
 
     }
