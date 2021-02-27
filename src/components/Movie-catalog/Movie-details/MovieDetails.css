@@ -44,3 +44,47 @@
 
 
 }
+@media (max-width: 768px){
+    .modal{
+        width: 300px;
+        top: 160px;
+        left: 210px;
+        min-height: 200px;
+        border: 7px solid #ffffff;
+    }
+    .movie__title{
+        font: 600 30px 'Quicksand', sans-serif;
+    }
+    .movie__genre{
+        font: 500 12px 'Quicksand', sans-serif;
+    }
+    .movie__description{
+        font: 500 14px 'Quicksand', sans-serif;
+        line-height: 20px;
+    }
+    .movie__budget,.movie__popularity{
+        font: 500 12px 'Quicksand', sans-serif;
+    }
+}
+@media (max-width: 480px){
+    .modal{
+        width: 250px;
+        top: 180px;
+        left: 88px;
+        border: 5px solid #ffffff;
+        min-height: 150px;
+    }
+    .movie__title{
+        font: 600 20px 'Quicksand', sans-serif;
+    }
+    .movie__genre{
+        font: 500 10px 'Quicksand', sans-serif;
+    }
+    .movie__description{
+        font: 500 12px 'Quicksand', sans-serif;
+        line-height: 18px;
+    }
+    .movie__budget,.movie__popularity{
+        font: 500 10px 'Quicksand', sans-serif;
+    }
+}

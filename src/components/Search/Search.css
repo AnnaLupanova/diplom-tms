@@ -121,3 +121,50 @@ button:hover{
 .activeSort{
     color:#FA8072;
 }
+
+@media (max-width: 768px) {
+    .sort {
+        padding: 10px 0 10px 183px;
+    }
+
+    .result-movies {
+        font: 500 12px 'Quicksand', sans-serif;
+            }
+    .sort-by{
+        font-size: 12px;
+        padding-right: 15px;
+    }
+    .sort-by-inscription{
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px){
+    .button{
+        font: 500 12px 'Quicksand', sans-serif;
+        padding: 3px 7px;
+
+    }
+    .search-by-inscription{
+        font: 500 13px 'Quicksand', sans-serif;
+    }
+    h2{
+        font-size: 16px;
+    }
+    .input-search{
+        font-size: 18px;
+    }
+    .sort {
+        padding: 10px 0 10px 130px;
+    }
+
+    .result-movies {
+        font: 500 10px 'Quicksand', sans-serif;
+    }
+    .sort-by{
+        font-size: 10px;
+        padding-right: 15px;
+    }
+    .sort-by-inscription{
+        font-size: 10px;
+    }
+}

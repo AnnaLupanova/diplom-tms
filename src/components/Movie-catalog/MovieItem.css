@@ -22,13 +22,14 @@ box-shadow:  0 0 7px rgba(0,0,0,0.5);
 }
 .movie__info__text{
     margin-right: 4vw;
+    word-wrap: break-word;
 }
 .movie__info {
     display: flex;
     justify-content: space-between;
     padding: 7px;
     position: relative;
-
+    word-wrap: break-word;
     overflow: hidden;
 
 }
@@ -59,4 +60,27 @@ box-shadow:  0 0 7px rgba(0,0,0,0.5);
     right: 5px;
     margin-bottom: 3px;
 
+}
+@media (max-width: 768px) {
+    .movie__info__text p{
+        font-size: 10px;
+        padding-right: 40px;
+    }
+    .movie__info__text h4{
+        font-size: 14px;
+        padding-right: 50px;
+
+    }
+    .movie__info__text{
+        width: 100%;
+    }
+    .section{
+        width: 40%;
+    }
+}
+@media (max-width: 480px) {
+
+    .section{
+        width: 70%;
+    }
 }
