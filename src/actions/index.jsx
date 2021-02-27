@@ -6,8 +6,6 @@ export const SORT_MOVIES = 'SORT_MOVIES';
 export const IS_ACTIVE_SEARCH_BY = 'IS_ACTIVE_SEARCH_BY';
 export const IS_ACTIVE_SORT_BY = 'IS_ACTIVE_SORT_BY';
 export const FETCH_MOVIE = 'FETCH_MOVIE';
-export const IS_MODAL = 'IS_MODAL';
-export const IS_MODAL_NOT_VISIBLE = 'IS_MODAL_NOT_VISIBLE';
 export const LOADING = 'LOADING';
 
 
@@ -17,24 +15,13 @@ export const searchMovie = text => dispatch => {
         payload: text
     });
 }
-export const isModalNotVisible = () => dispatch => {
-    dispatch({
-        type: IS_MODAL_NOT_VISIBLE,
-
-    });
-}
-export const isModal = () => dispatch => {
-    dispatch({
-        type: IS_MODAL,
-
-    });
-}
 export const isActiveSearchBy = () => dispatch => {
     dispatch({
         type: IS_ACTIVE_SEARCH_BY,
 
     });
 }
+
 export const isActiveSortBy = () => dispatch => {
     dispatch({
         type: IS_ACTIVE_SORT_BY,
@@ -56,27 +43,30 @@ export const sortMovies = (sortBy) => dispatch => {
 }
 
 export const fetchMovies = (text,searchBy)=> dispatch => {
-    const API_KEY = `https://reactjs-cdp.herokuapp.com/movies?search=${text}&searchBy=${searchBy}`
-    axios
-        .get(API_KEY)
-        .then(response =>
-            dispatch({
-                type: FETCH_MOVIES,
-                payload: response.data.data,
+    if (text!==''){
+        const API_KEY = `https://reactjs-cdp.herokuapp.com/movies?search=${text}&searchBy=${searchBy}`
+        axios
+            .get(API_KEY)
+            .then(response =>
+                dispatch({
+                    type: FETCH_MOVIES,
+                    payload: response.data.data,
+                } )
 
-            } )
 
+            )
+            .then(result=> {
 
-        )
-        .then(result=> {
+                    console.log(result)
 
-            console.log(result , API_KEY)
-            }
-        )
-        .catch(err => {
+                }
+            )
+            .catch(err => {
 
-            console.log(err)
-        });
+                console.log(err)
+            });
+    }
+
 };
 
 export const fetchMovie = (id) => dispatch => {

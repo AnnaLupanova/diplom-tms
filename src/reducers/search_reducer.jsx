@@ -33,18 +33,7 @@ export default function (state=initialState,action){
                 isActiveSearchBy:true,
                 loading: false
             }
-        case IS_MODAL:
-            return{
-                ...state,
-                isModalVisible:true,
-                loading: false
-            }
-        case IS_MODAL_NOT_VISIBLE:
-            return{
-                ...state,
-                isModalVisible:false,
-                loading: false
-            }
+
         case IS_ACTIVE_SORT_BY:
             return{
                 ...state,
