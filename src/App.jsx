@@ -6,6 +6,7 @@ import store from './store';
 import MovieDetails from './components/Movie-catalog/Movie-details/MovieDetails';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Landing from "./components/Landing/Landing";
+import PageNotFound from './components/Page-not-found/PageNotFound';
 
 class App extends React.Component {
     render() {
@@ -20,7 +21,7 @@ class App extends React.Component {
                             <Switch>
                                 <Route exact path='/' ><Landing/></Route>
                                 <Route exact path='/film/:id' > <Search/><MovieDetails/> <MovieCatalog/> </Route>
-
+                                <Route path='*' component={PageNotFound}/>
                             </Switch>
 
                         </div>
