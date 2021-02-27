@@ -6,26 +6,24 @@ import './Search.css';
 class Search extends React.Component {
 
     onChange = (e) => {
-        this.props.searchMovie(e.target.value);
+       this.props.searchMovie(e.target.value);
     };
 
     onSubmit = (e) => {
-
-        e.preventDefault();
-        this.props.fetchMovies(this.props.text, this.props.searchBy);
+       e.preventDefault();
+       this.props.fetchMovies(this.props.text, this.props.searchBy);
 
     }
 
-
     sortBy = (e) => {
-        e.preventDefault();
-        this.props.sortMovies(e.target.textContent)
-        this.props.isActiveSortBy();
+       e.preventDefault();
+       this.props.sortMovies(e.target.textContent)
+       this.props.isActiveSortBy();
 
     }
     searchBy = (e) => {
-        e.preventDefault();
-        this.props.isActiveSearchBy();
+      e.preventDefault();
+      this.props.isActiveSearchBy();
       this.props.searchByTitle(e.target.value)
 
     }

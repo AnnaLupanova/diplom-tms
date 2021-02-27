@@ -5,11 +5,28 @@ export const SEARCH_MOVIES_BY_TITLE = 'SEARCH_MOVIES_BY_TITLE';
 export const SORT_MOVIES = 'SORT_MOVIES';
 export const IS_ACTIVE_SEARCH_BY = 'IS_ACTIVE_SEARCH_BY';
 export const IS_ACTIVE_SORT_BY = 'IS_ACTIVE_SORT_BY';
+export const FETCH_MOVIE = 'FETCH_MOVIE';
+export const IS_MODAL = 'IS_MODAL';
+export const IS_MODAL_NOT_VISIBLE = 'IS_MODAL_NOT_VISIBLE';
+export const LOADING = 'LOADING';
+
 
 export const searchMovie = text => dispatch => {
     dispatch({
         type: SEARCH_MOVIE,
         payload: text
+    });
+}
+export const isModalNotVisible = () => dispatch => {
+    dispatch({
+        type: IS_MODAL_NOT_VISIBLE,
+
+    });
+}
+export const isModal = () => dispatch => {
+    dispatch({
+        type: IS_MODAL,
+
     });
 }
 export const isActiveSearchBy = () => dispatch => {
@@ -62,3 +79,26 @@ export const fetchMovies = (text,searchBy)=> dispatch => {
         });
 };
 
+export const fetchMovie = (id) => dispatch => {
+    axios
+        .get(`https://reactjs-cdp.herokuapp.com/movies/${id}`)
+        .then(response =>
+            dispatch({
+                type: FETCH_MOVIE,
+                payload: response.data,
+            } )
+        )
+        .then(result=> {
+                console.log(result)
+            }
+        )
+        .catch(err => {
+            console.log(err)
+        });
+}
+
+export const setLoading = () => {
+    return {
+        type: LOADING
+    };
+};

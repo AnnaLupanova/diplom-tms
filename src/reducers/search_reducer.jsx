@@ -1,4 +1,5 @@
-import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY } from '../actions';
+import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,
+    SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY,FETCH_MOVIE ,IS_MODAL,LOADING,IS_MODAL_NOT_VISIBLE} from '../actions';
 
 
 
@@ -9,6 +10,8 @@ const initialState = {
     counter: 0,
     isActiveSearchBy:false,
     isActiveSortBy:false,
+    isModalVisible:false,
+    loading: false,
 }
 
 export default function (state=initialState,action){
@@ -16,22 +19,43 @@ export default function (state=initialState,action){
         case SEARCH_MOVIE:
             return{
                 ...state,
-                text:action.payload
+                text:action.payload,
+                loading: false
             }
+        case LOADING:
+            return {
+                ...state,
+                loading: true
+            };
         case IS_ACTIVE_SEARCH_BY:
             return{
                 ...state,
                 isActiveSearchBy:true,
+                loading: false
+            }
+        case IS_MODAL:
+            return{
+                ...state,
+                isModalVisible:true,
+                loading: false
+            }
+        case IS_MODAL_NOT_VISIBLE:
+            return{
+                ...state,
+                isModalVisible:false,
+                loading: false
             }
         case IS_ACTIVE_SORT_BY:
             return{
                 ...state,
                 isActiveSortBy:true,
+                loading: false
             }
         case SEARCH_MOVIES_BY_TITLE:
             return{
                 ...state,
-                searchBy:action.payload
+                searchBy:action.payload,
+                loading: false
             }
         case SORT_MOVIES:
 
@@ -55,9 +79,16 @@ export default function (state=initialState,action){
             return{
                 ...state,
                 movies:action.payload,
+                loading: false
 
             }
+        case FETCH_MOVIE:
+            return{
+                ...state,
+                movie:action.payload,
+                loading: false
 
+            }
         default:
             return state
     }
