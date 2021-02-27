@@ -5,6 +5,7 @@ import {Provider} from "react-redux";
 import store from './store';
 import MovieDetails from './components/Movie-catalog/Movie-details/MovieDetails';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Landing from "./components/Landing/Landing";
 
 class App extends React.Component {
     render() {
@@ -13,14 +14,15 @@ class App extends React.Component {
                 <Router>
 
                     <div>
-                        <Search/>
 
                         <div>
 
                             <Switch>
-                                <Route exact path='/film/:id' component={MovieDetails}/>
+                                <Route exact path='/' ><Landing/></Route>
+                                <Route exact path='/film/:id' > <Search/><MovieDetails/> <MovieCatalog/> </Route>
+
                             </Switch>
-                            <MovieCatalog/>
+
                         </div>
                     </div>
                 </Router>
