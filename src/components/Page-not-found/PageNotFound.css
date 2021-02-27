@@ -14,3 +14,15 @@ img{
 .go__back{
     font: 500 16px 'Quicksand', sans-serif;
 }
+@media (max-width: 480px){
+    .not__found{
+        font-size: 30px;
+    }
+    img{
+        width: 200px;
+        height: 200px;
+    }
+    .go__back{
+        font-size: 14px;
+    }
+}
