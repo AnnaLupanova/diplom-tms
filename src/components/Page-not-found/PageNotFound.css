@@ -1,0 +1,16 @@
+.page__not__found{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+img{
+    width: 350px;
+    height: 300px;
+}
+.not__found{
+    font: 600 50px 'Quicksand', sans-serif;
+    padding: 20px 0 20px;
+}
+.go__back{
+    font: 500 16px 'Quicksand', sans-serif;
+}
