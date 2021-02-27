@@ -14,7 +14,7 @@ class MovieCatalog extends React.Component{
                 ? movies.map((movie, index) => (
                     <MovieItem key={index} movie={movie} />
                 ))
-                : null;
+                : 'Your movie not found';
         return <div className="container movieCatalog">{content}</div>;
 
 

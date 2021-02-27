@@ -1,14 +1,11 @@
 import React from 'react';
 import './MovieItem.css';
 import {Link,withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {isModal} from '../../actions/index';
+
 
 class MovieItem extends React.Component {
 
-    onModal = () => {
-        this.props.isModal()
-    }
+
     render() {
 
 
@@ -17,16 +14,20 @@ class MovieItem extends React.Component {
             <div className='section'>
                 <div className='movieItem'>
 
-                    <Link to={'/film/' + movie.id } onClick={this.onModal}>
+                    <Link to={'/film/' + movie.id } >
                         <div className='poster' >
-                            <img src={movie.poster_path} alt=''/>
+                            <img src={movie.poster_path} alt={movie.title}/>
                         </div>
                     </Link>
 
-                     <div className='movieInfo'>
-                        <div className='title'>{movie.title}</div>
-                        <div className='release-date'>{movie.release_date.split('', 4)}</div>
-                        <div className='genres'><p>{movie.genres.join(',')}</p></div>
+                    <div className='movie__info'>
+                        <div className='movie__info__text'>
+                            <h4>{movie.title}</h4>
+                            <p>{movie.genres.join(',')}</p>
+                        </div>
+                        <div className='movie__info__year'>
+                            <p>{movie.release_date.split('',4)}</p>
+                        </div>
                     </div>
 
                 </div>
@@ -37,8 +38,7 @@ class MovieItem extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isModalVis: state.movies.isModalVisible
-})
 
-export default connect(mapStateToProps, {isModal})(withRouter(MovieItem));
+
+
+export default withRouter(MovieItem);
