@@ -29,6 +29,10 @@ class Search extends React.Component {
       this.props.searchByTitle(e.target.value)
 
     }
+    componentDidMount() {
+        this.props.isActiveSearchBy();
+        this.props.searchByTitle('title')
+    }
 
     render() {
         return (
