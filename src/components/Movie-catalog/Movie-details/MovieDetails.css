@@ -1,21 +1,45 @@
 .modal{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    background: rgba(0,0,0,0.5);
-    color:#ffff;
-    display: block;
+    width: 38vw;
+    min-height: 300px;
+    border: 10px solid #ffffff;
+    box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    color: #ffffff;
+    z-index: 1000;
+    position: fixed;
+    top: 179px;
+    left: 351px;
 }
 
-
-.close-modal{
-    display: none;
+.movie__title{
+    font: 600 43px 'Quicksand', sans-serif;
+    padding-bottom: 10px;
 }
-.overlay {
-    box-sizing: content-box;
-    background-color: rgba(59, 67, 76, 0.9);
-    width: 100%;
-    height: 100%;
-    margin: -50px 0;
-    padding: inherit;
+.movie__genre{
+    font: 500 16px 'Quicksand', sans-serif;
+    padding-bottom: 14px;
+}
+.movie__description{
+    font: 500 16px 'Quicksand', sans-serif;
+    line-height: 23px;
+    padding-bottom: 13px;
+}
+.movie__budget,.movie__popularity{
+    font: 500 16px 'Quicksand', sans-serif;
+    padding-bottom: 5px;
+}
+.modal__wrapper{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+
+
 }
