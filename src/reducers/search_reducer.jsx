@@ -1,5 +1,5 @@
 import {SEARCH_MOVIE, FETCH_MOVIES,SEARCH_MOVIES_BY_TITLE,
-    SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY,FETCH_MOVIE ,IS_MODAL,LOADING,IS_MODAL_NOT_VISIBLE} from '../actions';
+    SORT_MOVIES,IS_ACTIVE_SEARCH_BY,IS_ACTIVE_SORT_BY,FETCH_MOVIE ,LOADING} from '../actions';
 
 
 
@@ -10,7 +10,6 @@ const initialState = {
     counter: 0,
     isActiveSearchBy:false,
     isActiveSortBy:false,
-    isModalVisible:false,
     loading: false,
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect } from 'react-redux';
-import MovieItem from "./MovieItem";
-import './MovieItem.css'
+import MovieItem from "./MovieItem/MovieItem";
+import './MovieItem/MovieItem.css'
 
 
 class MovieCatalog extends React.Component{
+
+
     render() {
         const { movies } = this.props;
         let content = '';
@@ -14,7 +16,7 @@ class MovieCatalog extends React.Component{
                 ? movies.map((movie, index) => (
                     <MovieItem key={index} movie={movie} />
                 ))
-                : 'Your movie not found';
+                : <div className='not__found__movie'>No movies found</div>;
         return <div className="container movieCatalog">{content}</div>;
 
 

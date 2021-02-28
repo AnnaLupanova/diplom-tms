@@ -1,6 +1,12 @@
 .section{
-
+    box-shadow:  0 0 7px rgba(0,0,0,0.5);
+    margin: 20px ;
     width: 25.5%;
+}
+.not__found__movie{
+    font: 600 20px 'Quicksand', sans-serif;
+    display: block;
+    margin: 25px auto;
 }
 
 .section:hover {
@@ -16,10 +22,7 @@
     height: 250px;
     object-fit: cover;
 }
-.section{
-box-shadow:  0 0 7px rgba(0,0,0,0.5);
-    margin: 20px 20px;
-}
+
 .movie__info__text{
     margin-right: 4vw;
     word-wrap: break-word;
@@ -76,6 +79,7 @@ box-shadow:  0 0 7px rgba(0,0,0,0.5);
     }
     .section{
         width: 40%;
+        margin: 20px 14px;
     }
 }
 @media (max-width: 480px) {

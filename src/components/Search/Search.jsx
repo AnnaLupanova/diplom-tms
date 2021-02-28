@@ -34,7 +34,7 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div className='search-tools'>
+            <div className='search__tools'>
                 <div className='header'>
                     <div className='overlay'>
                         <div className="container">
@@ -43,16 +43,16 @@ class Search extends React.Component {
                                   onSubmit={this.onSubmit}
                                   action="">
                                 <input type="text"
-                                       className='input-search'
+                                       className='input__search'
                                        placeholder='Input movie'
                                        onChange={this.onChange}/>
-                                <div className='search-settings'>
-                                    <p className='search-by-inscription'>Search by</p>
-                                    <button className={`button search-by ${this.props.isActiveSearch && this.props.searchBy==='title'  ? 'active':''}`}
+                                <div className='search__settings'>
+                                    <p className='search__by__inscription'>Search by</p>
+                                    <button className={`button search__by ${this.props.isActiveSearch && this.props.searchBy==='title'  ? 'active':''}`}
                                             onClick={this.searchBy}
                                             value='title'
                                             id='title'>Title</button>
-                                    <button className={`button search-by ${this.props.isActiveSearch && this.props.searchBy==='genres' ? 'active':' '}`}
+                                    <button className={`button search__by ${this.props.isActiveSearch && this.props.searchBy==='genres' ? 'active':' '}`}
                                             onClick={this.searchBy}
                                             value='genres'
                                             id='genres'>Genre</button>
@@ -64,14 +64,14 @@ class Search extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className ='section-result'>
+                <div className ='section__result'>
                     <div className='container'>
                         <div className='settings'>
-                            <p className='result-movies'>{this.props.movies.movies.length} movies found</p>
+                            <p className='result__movies'>{this.props.movies.movies.length} movies found</p>
                             <div className='sort'>
-                                <p className='sort-by-inscription'>Sort by</p>
-                                <p  onClick={this.sortBy} className={`sort-by release ${this.props.isActiveSort && this.props.sortBy==='release date'  ? 'activeSort':''}`}>release date</p>
-                                <p   onClick={this.sortBy} className={`sort-by rating ${this.props.isActiveSort && this.props.sortBy==='rating'  ? 'activeSort':''}`} >rating</p>
+                                <p className='sort__by__inscription'>Sort by</p>
+                                <p  onClick={this.sortBy} className={`sort__by release ${this.props.isActiveSort && this.props.sortBy==='release date'  ? 'activeSort':''}`}>release date</p>
+                                <p   onClick={this.sortBy} className={`sort__by rating ${this.props.isActiveSort && this.props.sortBy==='rating'  ? 'activeSort':''}`} >rating</p>
                             </div></div>
                     </div>
 

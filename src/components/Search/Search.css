@@ -22,7 +22,7 @@ background: url('./bg_header.jpg') ;
     height: 100%;
     text-align: center;
 }
-.input-search{
+.input__search{
     background: black;
     border: none;
     border-bottom: 2px solid #FA8072;
@@ -42,7 +42,7 @@ h2{
     padding: 15px 0 ;
 }
 
-.search-by-inscription{
+.search__by__inscription{
     font: 600 16px  'Quicksand', sans-serif;
     color: white;
     text-transform: uppercase;
@@ -53,7 +53,7 @@ h2{
     width: 70%;
     margin: 0 auto;
 }
-.search-settings{
+.search__settings{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -75,7 +75,7 @@ h2{
 .activeSort{
     color: #FA8072;
 }
-.search-by{
+.search__by{
     margin: 0 15px;
 }
 .section-result{
@@ -101,19 +101,20 @@ button[type=submit]{
 button:hover{
     cursor: pointer;
 }
-.result-movies{
+.result__movies{
     font: 500 16px 'Quicksand', sans-serif;
     padding: 10px 0;
     text-transform: uppercase;
 
 }
-.sort-by-inscription{
+.sort__by__inscription{
     padding-right: 20px;
     font: 500 16px 'Quicksand', sans-serif;
 }
-.sort-by{
+.sort__by{
     padding-right: 20px;
     font: 600 16px 'Quicksand', sans-serif;
+    cursor: pointer;
 }
 .sort-by:hover{
     cursor: pointer;
@@ -127,14 +128,14 @@ button:hover{
         padding: 10px 0 10px 183px;
     }
 
-    .result-movies {
+    .result__movies {
         font: 500 12px 'Quicksand', sans-serif;
             }
-    .sort-by{
+    .sort__by{
         font-size: 12px;
         padding-right: 15px;
     }
-    .sort-by-inscription{
+    .sort__by__inscription{
         font-size: 12px;
     }
 }
@@ -144,27 +145,27 @@ button:hover{
         padding: 3px 7px;
 
     }
-    .search-by-inscription{
+    .search__by__inscription{
         font: 500 13px 'Quicksand', sans-serif;
     }
     h2{
         font-size: 16px;
     }
-    .input-search{
+    .input__search{
         font-size: 18px;
     }
     .sort {
         padding: 10px 0 10px 130px;
     }
 
-    .result-movies {
+    .result__movies {
         font: 500 10px 'Quicksand', sans-serif;
     }
-    .sort-by{
+    .sort__by{
         font-size: 10px;
         padding-right: 15px;
     }
-    .sort-by-inscription{
+    .sort__by__inscription{
         font-size: 10px;
     }
 }

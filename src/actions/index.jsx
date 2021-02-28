@@ -61,10 +61,6 @@ export const fetchMovies = (text,searchBy)=> dispatch => {
 
                 }
             )
-            .catch(err => {
-
-                console.log(err)
-            });
     }
 
 };

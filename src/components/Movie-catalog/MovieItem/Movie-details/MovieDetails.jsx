@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchMovie,setLoading} from '../../../actions/index';
+import {fetchMovie,setLoading} from '../../../../actions';
 import {Link, withRouter} from 'react-router-dom';
 import './MovieDetails.css'
 import onClickOutside from 'react-onclickoutside';
-import Spinner from '../../Landing/Spinner';
+import Spinner from '../../../Landing/Spinner';
 
 
 export class MovieDetails extends React.Component{

@@ -3,8 +3,8 @@ import MovieCatalog from "./components/Movie-catalog";
 import Search from './components/Search/Search';
 import {Provider} from "react-redux";
 import store from './store';
-import MovieDetails from './components/Movie-catalog/Movie-details/MovieDetails';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import MovieDetails from './components/Movie-catalog/MovieItem/Movie-details/MovieDetails';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Landing from "./components/Landing/Landing";
 import PageNotFound from './components/Page-not-found/PageNotFound';
 
