@@ -1,0 +1,90 @@
+.modal{
+    width: 38vw;
+    min-height: 300px;
+    border: 10px solid #ffffff;
+    box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    color: #ffffff;
+    z-index: 1000;
+    position: fixed;
+    top: 160px;
+    left: 340px;
+
+}
+
+.movie__title{
+    font: 600 43px 'Quicksand', sans-serif;
+    padding-bottom: 10px;
+}
+.movie__genre{
+    font: 500 16px 'Quicksand', sans-serif;
+    padding-bottom: 14px;
+}
+.movie__description{
+    font: 500 16px 'Quicksand', sans-serif;
+    line-height: 23px;
+    padding-bottom: 13px;
+}
+.movie__budget,.movie__popularity{
+    font: 500 16px 'Quicksand', sans-serif;
+    padding-bottom: 5px;
+}
+.modal__wrapper{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+
+
+}
+@media (max-width: 768px){
+    .modal{
+        width: 300px;
+        top: 160px;
+        left: 210px;
+        min-height: 200px;
+        border: 7px solid #ffffff;
+    }
+    .movie__title{
+        font: 600 30px 'Quicksand', sans-serif;
+    }
+    .movie__genre{
+        font: 500 12px 'Quicksand', sans-serif;
+    }
+    .movie__description{
+        font: 500 14px 'Quicksand', sans-serif;
+        line-height: 20px;
+    }
+    .movie__budget,.movie__popularity{
+        font: 500 12px 'Quicksand', sans-serif;
+    }
+}
+@media (max-width: 480px){
+    .modal{
+        width: 250px;
+        top: 180px;
+        left: 88px;
+        border: 5px solid #ffffff;
+        min-height: 150px;
+    }
+    .movie__title{
+        font: 600 20px 'Quicksand', sans-serif;
+    }
+    .movie__genre{
+        font: 500 10px 'Quicksand', sans-serif;
+    }
+    .movie__description{
+        font: 500 12px 'Quicksand', sans-serif;
+        line-height: 18px;
+    }
+    .movie__budget,.movie__popularity{
+        font: 500 10px 'Quicksand', sans-serif;
+    }
+}
